@@ -26,8 +26,10 @@ const consecionaria = {
     listaDeVentas: function () {
         const autosVendidos = this.autos.filter(({ vendido }) => vendido)
         return autosVendidos.map(({ precio }) => precio)
-    }
-
+    },
+    totalDeVentas: function () {
+        return this.listaDeVentas().reduce((acum, valor) => acum += valor, 0)
+    },
 };
 
 // console.log(consecionaria.buscarAuto("JJK116"));
