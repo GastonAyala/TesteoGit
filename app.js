@@ -18,10 +18,20 @@ const consecionaria = {
         return "Auto vendido con éxito"
     },
     autosParaLaVenta: function () {
-        return this.autos.filter(({vendido}) => !vendido)
+        return this.autos.filter(({ vendido }) => !vendido)
     },
+    autosNuevos: function () {
+        return this.autosParaLaVenta().filter(({ km }) => km < 100)
+    },
+    listaDeVentas: function () {
+        const autosVendidos = this.autos.filter(({ vendido }) => vendido)
+        return autosVendidos.map(({ precio }) => precio)
+    }
+
 };
 
 // console.log(consecionaria.buscarAuto("JJK116"));
 // console.log(consecionaria.venderAuto("APL123"));
 // console.log(consecionaria.autosParaLaVenta());
+// console.log(consecionaria.autosNuevos());
+// console.log(consecionaria.listaDeVentas());
